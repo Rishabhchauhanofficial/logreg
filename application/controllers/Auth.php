@@ -32,7 +32,7 @@ class Auth extends CI_Controller
             {
                 //check user in database
                 $email=$_POST['email'];
-                $password=md5($_POST['password']);
+                $password=$_POST['password'];
 
                 $this->db->select('*');
                 $this->db->from('users');
@@ -56,6 +56,7 @@ class Auth extends CI_Controller
                       $_SESSION['zip'] = $user->zip;
                       $_SESSION['state'] = $user->state;
                       $_SESSION['country'] = $user->country;
+                      $_SESSION['password'] = $user->password;
                       
                     
 
@@ -92,7 +93,7 @@ class Auth extends CI_Controller
             {
                 // echo "form validated";
                 // add user to data base
-                $data=array('name'=>$_POST['name'],'email'=>$_POST['email'],'phone'=>$_POST['phone'],'address'=>$_POST['address'],'city'=>$_POST['city'],'country'=>$_POST['country'],'state'=>$_POST['state'],'zip'=>$_POST['zip'],'password'=>md5($_POST['password']),);
+                $data=array('name'=>$_POST['name'],'email'=>$_POST['email'],'phone'=>$_POST['phone'],'address'=>$_POST['address'],'city'=>$_POST['city'],'country'=>$_POST['country'],'state'=>$_POST['state'],'zip'=>$_POST['zip'],'password'=>$_POST['password'],);
                 $this->db->insert('users',$data); 
                 $this->session->set_flashdata("success","Your hass been Successfully created now you have access to login ");
                 redirect("auth/register","refresh");

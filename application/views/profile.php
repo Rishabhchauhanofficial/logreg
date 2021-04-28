@@ -5,6 +5,16 @@
  * submited to :codeacious
  * date:27/4/2021
  */
+
+ /*
+//repodirectory_content="status";
+//.htaccess
+// changes
+<file></file>
+
+
+
+ */
 ?>
 
 <!DOCTYPE html>
@@ -40,8 +50,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo base_url(); ?>index.php/auth/register">Register</a></li>
-        <a href="<?php echo base_url(); ?>index.php/auth/logout"><button type="button" class="btn btn-default navbar-btn" href="#">Logout</button></a>
+        <li><a href="<?php echo base_url(); ?>/auth/register">Register</a></li>
+        <a href="<?php echo base_url(); ?>/auth/logout"><button type="button" class="btn btn-default navbar-btn" href="#">Logout</button></a>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -71,6 +81,7 @@
       <li class="list-group-item">Your City Name is :<?php echo $_SESSION['city'];?></li>
       <li class="list-group-item">Your State Name is :<?php echo $_SESSION['state'];?></li>
       <li class="list-group-item">Your Zip Code is :<?php echo $_SESSION['zip'];?></li>
+      <li class="list-group-item">Your Password is :<?php echo $_SESSION['password'];?></li>
       <li class="list-group-item">Your have <?php echo $_SESSION['country'];?>an Citizenship</li>
       
     </ul>
@@ -79,7 +90,7 @@
     
     <br>
     <br>
-    <a href="<?php echo base_url(); ?>index.php/auth/logout">Logout</a>
+    <a href="<?php echo base_url(); ?>auth/logout">Logout</a>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

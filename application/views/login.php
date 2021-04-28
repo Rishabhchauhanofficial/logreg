@@ -39,8 +39,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo base_url(); ?>index.php/user/profile">Profile</a></li>
-        <a href="<?php echo base_url(); ?>index.php/auth/register"><button type="button" class="btn btn-default navbar-btn">Register</button></a>
+        <li><a href="<?php echo base_url(); ?>/user/profile">Profile</a></li>
+        <a href="<?php echo base_url(); ?>/auth/register"><button type="button" class="btn btn-default navbar-btn">Register</button></a>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

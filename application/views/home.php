@@ -5,6 +5,7 @@
  * submited to :codeacious
  * date:27/4/2021
  */
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Registration</title>
+    <title>Home </title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">
@@ -39,9 +40,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo base_url(); ?>index.php/user/profile">Profile</a></li>
-        <a href="<?php echo base_url(); ?>index.php/auth/login"><button type="button" class="btn btn-default navbar-btn">Login</button></a>
-        <a href="<?php echo base_url(); ?>index.php/auth/register"><button type="button" class="btn btn-default navbar-btn">Register</button></a>
+        <li><a href="<?php echo base_url(); ?>/user/profile">Profile</a></li>
+        <a href="<?php echo base_url(); ?>/auth/login"><button type="button" class="btn btn-default navbar-btn">Login</button></a>
+        <a href="<?php echo base_url(); ?>/auth/register"><button type="button" class="btn btn-default navbar-btn">Register</button></a>
         
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -51,7 +52,8 @@
     <div class="col-lg-5 col-lg-offset-2">
     <br>
     <br>
-    <h1>Home page</h1>
+    
+    <h1>This page under constructoin</h1>
     <br>
     <br>
 
