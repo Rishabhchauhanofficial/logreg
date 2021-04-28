@@ -27,6 +27,24 @@
     <![endif]-->
   </head>
   <body>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+    
+      <a class="navbar-brand" href="http://localhost/logreg/index.php">LogRej</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<?php echo base_url(); ?>index.php/user/profile">Profile</a></li>
+        <a href="<?php echo base_url(); ?>index.php/auth/login"><button type="button" class="btn btn-default navbar-btn">Login</button></a>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
     
     <div class="col-lg-8 col-lg-offset-2">
     <br>

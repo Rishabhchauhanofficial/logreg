@@ -27,12 +27,30 @@
     <![endif]-->
   </head>
   <body>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+    
+      <a class="navbar-brand" href="http://localhost/logreg/index.php">LogRej</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<?php echo base_url(); ?>index.php/user/profile">Profile</a></li>
+        <a href="<?php echo base_url(); ?>index.php/auth/register"><button type="button" class="btn btn-default navbar-btn">Register</button></a>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
     
     <div class="col-lg-5 col-lg-offset-2">
     <br>
     <br>
     <h1>Login page</h1>
-    <p>Fill the details for login to this website</p>
+    <p>First Fill the details for login</p>
     <br>
     <br>
     <?php if (isset($_SESSION['fail'])) {?>

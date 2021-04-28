@@ -9,6 +9,11 @@
 class Auth extends CI_Controller
  {
 
+    public function index()
+	{
+		$this->load->view('register');
+	} 
+    
     public function logout()
     {
 
@@ -18,6 +23,7 @@ class Auth extends CI_Controller
     }
     public function login()
     {
+        
         // echo "login page";
         if(isset($_POST['login'])){
             $this->form_validation->set_rules('email','email','required');
@@ -34,6 +40,7 @@ class Auth extends CI_Controller
                 $query =$this->db->get();
 
                 $user = $query->row();
+                
                 //if user exist
                 if($user->email){
                     //temp message
@@ -42,6 +49,14 @@ class Auth extends CI_Controller
                     //make a session variable
                       $_SESSION['user_logged'] = TRUE;
                       $_SESSION['name'] = $user->name;
+                      $_SESSION['email'] = $user->email;
+                      $_SESSION['phone'] = $user->phone;
+                      $_SESSION['address'] = $user->address;
+                      $_SESSION['city'] = $user->city;
+                      $_SESSION['zip'] = $user->zip;
+                      $_SESSION['state'] = $user->state;
+                      $_SESSION['country'] = $user->country;
+                      
                     
 
                     //redirect to userlogin page
@@ -85,5 +100,7 @@ class Auth extends CI_Controller
         }
 		$this->load->view('register');
 	}
+
+    
 
  }
