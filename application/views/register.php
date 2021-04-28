@@ -34,6 +34,11 @@
     <h1>Register page</h1>
     <br>
     <br>
+    <?php if (isset($_SESSION['success'])) {?>
+        <div class="alert alert-success"><?php echo $_SESSION['success'];?></div>
+    <?php
+    }?>
+
     <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
     <form class="" method="POST">
       <div class="form-group">

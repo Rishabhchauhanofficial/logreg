@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Registration</title>
+    <title>Profile</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">
@@ -31,30 +31,32 @@
     <div class="col-lg-5 col-lg-offset-2">
     <br>
     <br>
-    <h1>Login page</h1>
-    <p>Fill the details for login to this website</p>
+    <h1>Profile page</h1>
+    
     <br>
     <br>
-    <?php if (isset($_SESSION['fail'])) {?>
-        <div class="alert alert-success"><?php echo $_SESSION['fail'];?></div>
+
+    <?php if (isset($_SESSION['error'])) {?>
+        <div class="alert alert-success"><?php echo $_SESSION['error'];?></div>
     <?php
     }?>
-
-    <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
-    <form class="" method="POST">
-      <div class="form-group">
-         <label for="email">Email</label>
-         <input class="form-control" name="email" id="email" type="email">
-      </div>
-      <div class="form-group">
-         <label for="password">Password</label>
-         <input class="form-control" name="password" id="password" type="password">
-      </div>
-      <br>
-      <div >
-        <button class="btn btn-primary" name="login">Login</button>
-      </div>
-      </form>
+<br>
+<div class="container">
+    <h1>Hello <?php echo $_SESSION['name'];?> !! </h1>
+<div class="container-2">
+<h3>Your Profile Information</h3>
+    <h3>Your Email Id is <?php echo $_SESSION['email'];?></h3>
+    <h3>Your Phone Number is  <?php echo $_SESSION['phone'];?></h3>
+    <h3>Your Address Is <?php echo $_SESSION['address'];?></h3>
+       <h3>,<?php echo $_SESSION['city'];?></h3>
+       <h3>,<?php echo $_SESSION['state'];?></h3>
+       <h3>,<?php echo $_SESSION['country'];?></h3>
+       <h3>,<?php echo $_SESSION['zip'];?></h3>
+    </div>
+    </div>
+    <br>
+    <br>
+    <a href="<?php echo base_url(); ?>index.php/auth/logout">Logout</a>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
