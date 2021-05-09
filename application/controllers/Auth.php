@@ -8,19 +8,25 @@
 
 class Auth extends CI_Controller
  {
-
+   
+    public function __construct()
+    {
+        
+        parent::__construct();
+        if($_SESSION['user_inprofile']==TRUE){
+            
+            $this->session->set_flashdata("errorforlogreg","You are already login If you want to open Login or Register page so first logout yourself");
+            redirect("user/profile");
+        }
+        
+    }
+    
     public function index()
 	{
 		$this->load->view('register');
 	} 
-    
-    public function logout()
-    {
-
-        unset($_SESSION);
-        session_destroy();
-        redirect("auth/login","refresh");
-    }
+  
+   
     public function login()
     {
         
@@ -32,7 +38,7 @@ class Auth extends CI_Controller
             {
                 //check user in database
                 $email=$_POST['email'];
-                $password=$_POST['password'];
+                $password=md5($_POST['password']);
 
                 $this->db->select('*');
                 $this->db->from('users');
@@ -43,8 +49,7 @@ class Auth extends CI_Controller
                 
                 //if user exist
                 if($user->email){
-                    //temp message
-                    //$this->session->set_flashdata("success","You are Logged in");
+                   
 
                     //make a session variable
                       $_SESSION['user_logged'] = TRUE;
@@ -63,10 +68,16 @@ class Auth extends CI_Controller
                     //redirect to userlogin page
 
                     redirect("user/profile","refresh");
+                    
 
                 }
+                //if user not exist
                 else{
+                    
+
+                    $this->session->set_flashdata("fail","May Be Your Email id or Password not Correct");
                     redirect("auth/login","refresh");
+                    
                 }
 
             }
@@ -76,6 +87,7 @@ class Auth extends CI_Controller
     }
     public function register()
 	{
+        
         //form validation
         if(isset($_POST['register']))
         {
@@ -92,11 +104,24 @@ class Auth extends CI_Controller
             if($this->form_validation->run() == TRUE)
             {
                 // echo "form validated";
-                // add user to data base
-                $data=array('name'=>$_POST['name'],'email'=>$_POST['email'],'phone'=>$_POST['phone'],'address'=>$_POST['address'],'city'=>$_POST['city'],'country'=>$_POST['country'],'state'=>$_POST['state'],'zip'=>$_POST['zip'],'password'=>$_POST['password'],);
-                $this->db->insert('users',$data); 
-                $this->session->set_flashdata("success","Your hass been Successfully created now you have access to login ");
+                $email=$_POST['email'];
+                $this->db->select('*');
+                $this->db->from('users');
+                $this->db->where(array('email'=>$email));
+                $query =$this->db->get();
+
+                $user = $query->row();
+                if($user->email){
+                    $this->session->set_flashdata("exist","this Email is already in use do login ");
                 redirect("auth/register","refresh");
+                }
+                else{
+                // add user to data base
+                $data=array('name'=>$_POST['name'],'email'=>$_POST['email'],'phone'=>$_POST['phone'],'address'=>$_POST['address'],'city'=>$_POST['city'],'country'=>$_POST['country'],'state'=>$_POST['state'],'zip'=>$_POST['zip'],'password'=>md5($_POST['password']));
+                $this->db->insert('users',$data); 
+                $this->session->set_flashdata("success","Your has been Successfully created now you have access to login ");
+                redirect("auth/register","refresh");
+                }
             }
         }
 		$this->load->view('register');

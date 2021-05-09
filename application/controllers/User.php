@@ -22,6 +22,9 @@ class User extends CI_Controller
 
 
         $this->load->view('profile');
+        $_SESSION['user_inprofile'] = TRUE;
+        
+       //debug echo $_SESSION['user_inprofile'];
     }  
     
  }

@@ -55,6 +55,13 @@
     <?php if (isset($_SESSION['success'])) {?>
         <div class="alert alert-success"><?php echo $_SESSION['success'];?></div>
     <?php
+    
+    }?>
+
+     <?php if (isset($_SESSION['exist'])) {?>
+        <div class="alert alert-success"><?php echo $_SESSION['exist'];?></div>
+    <?php
+    
     }?>
 
     <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>

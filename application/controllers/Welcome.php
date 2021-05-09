@@ -20,6 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$_SESSION['user_inprofile']=FALSE;
 		$this->load->view('home');
 
 	}

@@ -51,7 +51,8 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li><a href="<?php echo base_url(); ?>/auth/register">Register</a></li>
-        <a href="<?php echo base_url(); ?>/auth/logout"><button type="button" class="btn btn-default navbar-btn" href="#">Logout</button></a>
+        <li><a href="<?php echo base_url(); ?>/auth/login">Login</a></li>
+        <a href="<?php echo base_url(); ?>forlogout/logout"><button type="button" class="btn btn-default navbar-btn" href="#">Logout</button></a>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -68,6 +69,10 @@
         <div class="alert alert-success"><?php echo $_SESSION['error'];?></div>
     <?php
     }?>
+    <?php if (isset($_SESSION['errorforlogreg'])) {?>
+        <div class="alert alert-danger"><?php echo $_SESSION['errorforlogreg'];?></div>
+    <?php
+    }?>
 <br>
 <div class="container">
     <h1>Hello <?php echo $_SESSION['name'];?> !! </h1>
@@ -81,7 +86,6 @@
       <li class="list-group-item">Your City Name is :<?php echo $_SESSION['city'];?></li>
       <li class="list-group-item">Your State Name is :<?php echo $_SESSION['state'];?></li>
       <li class="list-group-item">Your Zip Code is :<?php echo $_SESSION['zip'];?></li>
-      <li class="list-group-item">Your Password is :<?php echo $_SESSION['password'];?></li>
       <li class="list-group-item">Your have <?php echo $_SESSION['country'];?>an Citizenship</li>
       
     </ul>
@@ -90,7 +94,7 @@
     
     <br>
     <br>
-    <a href="<?php echo base_url(); ?>auth/logout">Logout</a>
+    <a href="<?php echo base_url(); ?>forlogout/logout">Logout</a>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
